@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>知夏笔记 - 本地优先的全能 Markdown 笔记工具</title>
+<meta name="description" content="知夏笔记是一款集 Markdown 笔记、日记、密码箱、待办、日程于一体的本地优先客户端工具，支持 GitHub 同步，数据完全属于你。" />
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: #4a6cf7;
+  --light: #f8f9fc;
+  --dark: #1c1c28;
+  --text: #333;
+  --gray: #888;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.7;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* 导航 */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.menu {
+  display: flex;
+  gap: 28px;
+}
+.menu a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.2s;
+}
+.menu a:hover {
+  color: var(--primary);
+}
+
+/* 英雄区 */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.hero p {
+  font-size: 18px;
+  color: #666;
+  max-width: 650px;
+  margin: 0 auto 36px;
+}
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 15px 32px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 16px;
+}
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(74,108,247,0.25);
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74,108,247,0.3);
+}
+.btn.ghost {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+.btn.ghost:hover {
+  background: #f5f7ff;
+}
+
+/* 功能区 */
+.features {
+  padding: 70px 0;
+}
+.sec-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 26px;
+}
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px;
+  border: 1px solid #f2f2f2;
+  transition: 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.card p {
+  color: #666;
+  font-size: 15px;
+}
+
+/* 价格 */
+.price {
+  background: var(--light);
+  padding: 70px 0;
+  border-radius: 20px;
+  margin: 40px 0;
+  text-align: center;
+}
+.price-box {
+  background: #fff;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 18px;
+  border: 1px solid #eee;
+}
+.price-tag {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.price-desc {
+  color: #666;
+  margin-bottom: 26px;
+}
+.license {
+  color: #888;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+/* 底部 */
+.footer {
+  text-align: center;
+  padding: 50px 0;
+  color: #999;
+  font-size: 14px;
+  border-top: 1px solid #f2f2f2;
+  margin-top: 40px;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .menu {
+    gap: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- 导航 -->
+  <div class="nav">
+    <div class="logo">知夏笔记</div>
+    <div class="menu">
+      <a href="#feature">功能</a>
+      <a href="#price">价格</a>
+      <a href="#">下载</a>
+      <a href="#">关于</a>
+    </div>
+  </div>
+
+  <!-- 头部 -->
+  <div class="hero">
+    <h1>本地优先 · 全能 Markdown 笔记</h1>
+    <p>集笔记、日记、密码箱、待办、日程于一身，支持 GitHub 私有同步，数据完全由你掌控，无广告、不锁文件、不强制上传。</p>
+    <div class="buttons">
+      <a href="#" class="btn primary">立即下载</a>
+      <a href="#price" class="btn ghost">永久授权</a>
+    </div>
+  </div>
+
+  <!-- 功能 -->
+  <div class="features" id="feature">
+    <h2 class="sec-title">核心功能</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>📝 强大 Markdown 编辑器</h3>
+        <p>支持多种自定义样式、代码高亮、Mermaid 图表、表格、公式，可导出带样式 HTML / PDF。</p>
+      </div>
+      <div class="card">
+        <h3>📔 日记 + 笔记 + 待办 + 日程</h3>
+        <p>一个软件满足记录、计划、任务、日程管理，无需切换多个工具，高效统一。</p>
+      </div>
+      <div class="card">
+        <h3>🔐 密码锁 + 隐私保护</h3>
+        <p>本地加密存储，支持应用密码锁，敏感内容绝不泄露，真正属于你的私密空间。</p>
+      </div>
+      <div class="card">
+        <h3>☁️ GitHub 免费同步</h3>
+        <p>使用自己的 GitHub 仓库实现多设备同步，免费、稳定、私有，数据永远属于你。</p>
+      </div>
+      <div class="card">
+        <h3>🎨 浅色 / 深色 / 自动主题</h3>
+        <p>支持明暗双主题，可跟随系统自动切换，长时间写作更护眼、更舒适。</p>
+      </div>
+      <div class="card">
+        <h3>🚀 本地运行 · 极速流畅</h3>
+        <p>Electron 客户端，启动快、占用低、无广告、无后台，专注写作不被打扰。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 价格 -->
+  <div class="price" id="price">
+    <h2 class="sec-title">永久授权 · 一次购买终身使用</h2>
+    <div class="price-box">
+      <div class="price-tag">¥99</div>
+      <div class="price-desc">解锁全部功能，永久免费更新，多设备使用</div>
+      <a href="#" class="btn primary">立即购买</a>
+      <div class="license">个人授权 · 无订阅 · 无年费</div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    知夏笔记 © 2026 · 一人独立开发 · 用心做好产品
+  </div>
+</div>
+
+</body>
+</html>
