@@ -5,277 +5,613 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>知夏笔记 - 本地优先的全能 Markdown 笔记工具</title>
 <meta name="description" content="知夏笔记是一款集 Markdown 笔记、日记、密码箱、待办、日程于一体的本地优先客户端工具，支持 GitHub 同步，数据完全属于你。" />
+<link rel="icon" type="image/png" href="assets/favicon-64x64.png" />
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* 
+  Theme Variables 
+  Designed for a clean, modern, and trustworthy aesthetic.
+*/
 :root {
-  --primary: #4a6cf7;
-  --light: #f8f9fc;
-  --dark: #1c1c28;
-  --text: #333;
-  --gray: #888;
-  --radius: 12px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: #fff;
-  color: var(--text);
-  line-height: 1.7;
-}
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 22px;
+  --primary: #2563eb;       /* Modern Blue */
+  --primary-hover: #1d4ed8;
+  --secondary: #64748b;
+  --bg-body: #ffffff;
+  --bg-alt: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --container-width: 1100px;
 }
 
-/* 导航 */
-.nav {
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-main);
+  background: var(--bg-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* Scroll Margin for fixed header */
+[id] { scroll-margin-top: 100px; }
+
+/* Layout Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section { padding: 100px 0; }
+.section-bg { background: var(--bg-alt); }
+.text-center { text-align: center; }
+
+/* Typography */
+h1, h2, h3 {
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.section-title {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+.section-subtitle {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  height: 72px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
-  border-bottom: 1px solid #f0f0f0;
+  justify-content: space-between;
 }
 .logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--primary);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
 }
-.menu {
+.logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+.nav-links {
   display: flex;
-  gap: 28px;
+  gap: 32px;
 }
-.menu a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
+.nav-links a {
   font-size: 15px;
-  transition: 0.2s;
+  font-weight: 500;
+  color: var(--text-muted);
 }
-.menu a:hover {
-  color: var(--primary);
+.nav-links a:hover { color: var(--primary); }
+.btn-nav {
+  padding: 8px 20px;
+  background: var(--text-main);
+  color: #fff !important;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.btn-nav:hover {
+  background: #000;
+  transform: translateY(-1px);
 }
 
-/* 英雄区 */
+/* Hero Section */
 .hero {
-  padding: 80px 0 60px;
+  padding: 120px 0 100px;
+  background: radial-gradient(circle at 50% 0%, #eff6ff 0%, #fff 70%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #eff6ff;
+  color: var(--primary);
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid #dbeafe;
+}
 .hero h1 {
-  font-size: 44px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.3;
+  font-size: 56px;
+  margin-bottom: 24px;
+  background: linear-gradient(to right, #1e293b, #334155);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero p {
-  font-size: 18px;
-  color: #666;
-  max-width: 650px;
-  margin: 0 auto 36px;
+  font-size: 20px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  line-height: 1.6;
 }
-.buttons {
+.hero-btns {
   display: flex;
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
 }
 .btn {
-  padding: 15px 32px;
-  border-radius: var(--radius);
-  font-weight: 500;
-  text-decoration: none;
-  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 99px;
   font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.btn.primary {
+.btn-primary {
   background: var(--primary);
-  color: #fff;
-  box-shadow: 0 6px 20px rgba(74,108,247,0.25);
+  color: white;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
 }
-.btn.primary:hover {
+.btn-primary:hover {
+  background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(74,108,247,0.3);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
-.btn.ghost {
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  background: transparent;
+.btn-outline {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text-main);
 }
-.btn.ghost:hover {
-  background: #f5f7ff;
+.btn-outline:hover {
+  border-color: var(--text-muted);
+  background: #f8fafc;
 }
 
-/* 功能区 */
-.features {
-  padding: 70px 0;
-}
-.sec-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 50px;
-}
-.grid {
+/* Features Grid */
+.feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
 }
-.card {
+.feature-card {
   background: #fff;
-  border-radius: var(--radius);
-  padding: 28px;
-  border: 1px solid #f2f2f2;
-  transition: 0.2s;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  transition: 0.3s;
 }
-.card:hover {
+.feature-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
 }
-.card h3 {
-  font-size: 18px;
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: #eff6ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.feature-card h3 {
+  font-size: 20px;
   margin-bottom: 10px;
-  font-weight: 600;
 }
-.card p {
-  color: #666;
+.feature-card p {
+  color: var(--text-muted);
   font-size: 15px;
 }
 
-/* 价格 */
-.price {
-  background: var(--light);
-  padding: 70px 0;
-  border-radius: 20px;
-  margin: 40px 0;
-  text-align: center;
+/* Highlight Section (Alternating) */
+.highlight-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
-.price-box {
-  background: #fff;
-  max-width: 420px;
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.highlight-item.reverse {
+  flex-direction: row-reverse;
+}
+.highlight-text { flex: 1; }
+.highlight-text h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.highlight-text p {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.highlight-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--text-main);
+}
+.highlight-list svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+.highlight-visual {
+  flex: 1;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-radius: 24px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-weight: 500;
+  border: 1px dashed #cbd5e1;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Price Section */
+.price-card {
+  max-width: 440px;
   margin: 0 auto;
-  padding: 40px;
-  border-radius: 18px;
-  border: 1px solid #eee;
+  background: white;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 .price-tag {
-  font-size: 38px;
-  font-weight: 700;
+  background: #eff6ff;
   color: var(--primary);
-  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.price-amount {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.price-unit {
+  font-size: 20px;
+  color: var(--text-muted);
+  vertical-align: super;
 }
 .price-desc {
-  color: #666;
-  margin-bottom: 26px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
 }
-.license {
-  color: #888;
-  font-size: 14px;
-  margin-top: 16px;
+.price-list {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 20px;
+}
+.price-list li {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* 底部 */
-.footer {
-  text-align: center;
-  padding: 50px 0;
-  color: #999;
+/* Footer */
+footer {
+  background: #0f172a;
+  color: white;
+  padding: 80px 0 40px;
   font-size: 14px;
-  border-top: 1px solid #f2f2f2;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.footer-nav {
+  display: flex;
+  gap: 24px;
+}
+.footer-nav a {
+  color: #94a3b8;
+}
+.footer-nav a:hover {
+  color: white;
+}
+.copyright {
+  color: #64748b;
   margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #1e293b;
+  width: 100%;
+  text-align: center;
 }
 
-/* 移动端适配 */
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-  .nav {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .menu {
-    gap: 18px;
-  }
+  .nav-inner { flex-direction: column; height: auto; padding: 16px 0; gap: 16px; }
+  .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .hero h1 { font-size: 36px; }
+  .highlight-item, .highlight-item.reverse { flex-direction: column; text-align: left; }
+  .highlight-visual { width: 100%; height: 240px; }
+  .price-card { padding: 32px 24px; }
 }
 </style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7d249fd7a3bbf4c365fa06e37ee577e1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
 
-<div class="container">
-  <!-- 导航 -->
-  <div class="nav">
+<header>
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <img src="assets/favicon-64x64.png" alt="知夏笔记 Logo">
+      知夏笔记
+    </a>
+    <nav class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#diary">日记</a>
+      <a href="#toolbox">百宝箱</a>
+      <a href="#price">定价</a>
+    </nav>
+    <a href="https://pay.ldxp.cn/shop/JP29WP9S" target="_blank" class="btn-nav">立即购买</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="badge">🚀 新版发布 · 本地优先 · 永久买断</span>
+      <h1>掌控你的数据<br>记录生活与灵感</h1>
+      <p>一款集 Markdown 笔记、日记、密码箱、日程管理于一体的全能工具。<br>数据存储在本地，支持 Git 私有同步，安全、快速、自由。</p>
+      <div class="hero-btns">
+        <a href="#price" class="btn btn-primary">
+          获取永久授权
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#" class="btn btn-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.15-1.02.05-2.26.68-3 1.54-.63.74-1.17 1.92-1.02 3.16 1.13.09 2.26-.64 3.01-1.55z"/></svg>
+          Mac (Intel)
+        </a>
+        <a href="#" class="btn btn-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.15-1.02.05-2.26.68-3 1.54-.63.74-1.17 1.92-1.02 3.16 1.13.09 2.26-.64 3.01-1.55z"/></svg>
+          Mac (M芯片)
+        </a>
+        <a href="#" class="btn btn-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.44v17.12l9.63-1.31V4.78L0 3.44zm11.06 1.51v14.1L24 20.93V3.07l-12.94 1.88z"/></svg>
+          Windows
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">不仅仅是编辑器</h2>
+        <p class="section-subtitle">精心打磨的每一个细节，只为提供最流畅的写作体验</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>全能 Markdown</h3>
+          <p>支持 GFM 标准、代码高亮、Mermaid 图表、数学公式。所见即所得的样式导出。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>安全隐私</h3>
+          <p>数据完全本地化，支持 AES 加密密码箱。我们不收集任何用户数据。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Git 同步</h3>
+          <p>免费同步到 GitHub/GitLab 私有仓库，多端数据实时保持一致。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Highlights -->
+  <section class="section section-bg" id="diary">
+    <div class="container highlight-wrap">
+      
+      <!-- Highlight 1: Diary -->
+      <div class="highlight-item">
+        <div class="highlight-text">
+          <h2>📅 专属日记模式</h2>
+          <p>用文字定格时间。独特的日历视图，让回忆触手可及。</p>
+          <ul class="highlight-list">
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>日历概览视图，心情天气自动记录</span>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>独立加密存储，保护私密日记</span>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>支持图文混排，记录生活点滴</span>
+            </li>
+          </ul>
+        </div>
+        <div class="highlight-visual">
+          [日记模式界面预览]
+        </div>
+      </div>
+
+      <!-- Highlight 2: AI -->
+      <div class="highlight-item reverse">
+        <div class="highlight-text">
+          <h2>🤖 AI 智能助手</h2>
+          <p>接入 DeepSeek 等强大模型，辅助你的创作与思考。</p>
+          <ul class="highlight-list">
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>智能摘要与润色，提升写作质量</span>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>侧边栏对话，随时获取灵感</span>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>支持自定义 API Key，按需使用</span>
+            </li>
+          </ul>
+        </div>
+        <div class="highlight-visual">
+          [AI 助手界面预览]
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Toolbox Grid -->
+  <section class="section" id="toolbox">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">功能百宝箱</h2>
+        <p class="section-subtitle">更多实用工具，提升效率</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3>密码管理</h3>
+          <p>本地加密存储账号密码，安全无忧。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>待办清单</h3>
+          <p>极简任务管理，保持专注。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>多主题</h3>
+          <p>深色/浅色模式，舒适护眼。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section-bg" id="price">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">简单透明的定价</h2>
+        <p class="section-subtitle">支持独立开发，享受终身服务</p>
+      </div>
+      
+      <div class="price-card">
+        <span class="price-tag">限时特惠</span>
+        <div class="price-amount">
+          <span style="font-size: 32px; vertical-align: top;">¥</span>9.9
+        </div>
+        <div class="price-desc">原价 ¥99 · 终身买断制</div>
+        
+        <ul class="price-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
+            解锁所有高级功能
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
+            无限数量笔记与日记
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
+            Git 多端同步支持
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
+            AI 助手 (需自备 Key)
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
+            永久免费更新支持
+          </li>
+        </ul>
+
+        <a href="https://pay.ldxp.cn/shop/JP29WP9S" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+          立即购买
+        </a>
+        <p style="margin-top: 16px; font-size: 13px; color: #94a3b8;">支持 支付宝 支付</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-content">
     <div class="logo">知夏笔记</div>
-    <div class="menu">
-      <a href="#feature">功能</a>
-      <a href="#price">价格</a>
-      <a href="#">下载</a>
-      <a href="#">关于</a>
+    <nav class="footer-nav">
+      <a href="#">使用文档</a>
+      <a href="#">更新日志</a>
+      <a href="#">隐私协议</a>
+      <a href="#">联系作者</a>
+    </nav>
+    <div class="copyright">
+      &copy; 2026 知夏笔记. All rights reserved. Designed for simplicity.
     </div>
   </div>
-
-  <!-- 头部 -->
-  <div class="hero">
-    <h1>本地优先 · 全能 Markdown 笔记</h1>
-    <p>集笔记、日记、密码箱、待办、日程于一身，支持 GitHub 私有同步，数据完全由你掌控，无广告、不锁文件、不强制上传。</p>
-    <div class="buttons">
-      <a href="#" class="btn primary">立即下载</a>
-      <a href="#price" class="btn ghost">永久授权</a>
-    </div>
-  </div>
-
-  <!-- 功能 -->
-  <div class="features" id="feature">
-    <h2 class="sec-title">核心功能</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>📝 强大 Markdown 编辑器</h3>
-        <p>支持多种自定义样式、代码高亮、Mermaid 图表、表格、公式，可导出带样式 HTML / PDF。</p>
-      </div>
-      <div class="card">
-        <h3>📔 日记 + 笔记 + 待办 + 日程</h3>
-        <p>一个软件满足记录、计划、任务、日程管理，无需切换多个工具，高效统一。</p>
-      </div>
-      <div class="card">
-        <h3>🔐 密码锁 + 隐私保护</h3>
-        <p>本地加密存储，支持应用密码锁，敏感内容绝不泄露，真正属于你的私密空间。</p>
-      </div>
-      <div class="card">
-        <h3>☁️ GitHub 免费同步</h3>
-        <p>使用自己的 GitHub 仓库实现多设备同步，免费、稳定、私有，数据永远属于你。</p>
-      </div>
-      <div class="card">
-        <h3>🎨 浅色 / 深色 / 自动主题</h3>
-        <p>支持明暗双主题，可跟随系统自动切换，长时间写作更护眼、更舒适。</p>
-      </div>
-      <div class="card">
-        <h3>🚀 本地运行 · 极速流畅</h3>
-        <p>Electron 客户端，启动快、占用低、无广告、无后台，专注写作不被打扰。</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 价格 -->
-  <div class="price" id="price">
-    <h2 class="sec-title">永久授权 · 一次购买终身使用</h2>
-    <div class="price-box">
-      <div class="price-tag">¥99</div>
-      <div class="price-desc">解锁全部功能，永久免费更新，多设备使用</div>
-      <a href="#" class="btn primary">立即购买</a>
-      <div class="license">个人授权 · 无订阅 · 无年费</div>
-    </div>
-  </div>
-
-  <!-- 底部 -->
-  <div class="footer">
-    知夏笔记 © 2026 · 一人独立开发 · 用心做好产品
-  </div>
-</div>
+</footer>
 
 </body>
 </html>
