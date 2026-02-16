@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>知夏笔记 - 本地优先的全能 Markdown 笔记工具</title>
-<meta name="description" content="知夏笔记是一款集 Markdown 笔记、日记、密码箱、待办、日程于一体的本地优先客户端工具，支持 GitHub 同步，数据完全属于你。" />
+<meta name="description" content="知夏笔记是一款集 Markdown 笔记、日记、密码箱、待办、日程于一体的本地优先客户端工具，支持 Git 私有仓库同步与本地加密，数据完全属于你。" />
 <link rel="icon" type="image/png" href="assets/favicon-64x64.png" />
 <style>
 /* 
@@ -402,10 +402,11 @@ var _hmt = _hmt || [];
       知夏笔记
     </a>
     <nav class="nav-links">
-      <a href="#features">功能</a>
-      <a href="#diary">日记</a>
-      <a href="#toolbox">百宝箱</a>
-      <a href="#price">定价</a>
+      <a href="#features">为什么选知夏</a>
+      <a href="#scenes">适合谁用</a>
+      <a href="#security">数据与安全</a>
+      <a href="#guide">上手教程</a>
+      <a href="#price">定价与授权</a>
     </nav>
     <a href="https://pay.ldxp.cn/shop/JP29WP9S" target="_blank" class="btn-nav">立即购买</a>
   </div>
@@ -416,22 +417,22 @@ var _hmt = _hmt || [];
   <section class="hero">
     <div class="container hero-content">
       <span class="badge">🚀 新版发布 · 本地优先 · 永久买断</span>
-      <h1>掌控你的数据<br>记录生活与灵感</h1>
-      <p>一款集 Markdown 笔记、日记、密码箱、日程管理于一体的全能工具。<br>数据存储在本地，支持 Git 私有同步，安全、快速、自由。</p>
+      <h1>你的第二大脑<br>本地优先，掌控全部数据</h1>
+      <p>专为程序员、独立创作者和重视隐私的知识工作者设计。<br>在一处同时管理笔记、日记、待办、日程和密码，全部保存在你的设备和私有仓库中。</p>
       <div class="hero-btns">
-        <a href="#price" class="btn btn-primary">
-          获取永久授权
+        <a href="#guide" class="btn btn-primary">
+          3 分钟快速上手
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <a href="#" class="btn btn-outline">
+        <a href="#price" class="btn btn-outline">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.15-1.02.05-2.26.68-3 1.54-.63.74-1.17 1.92-1.02 3.16 1.13.09 2.26-.64 3.01-1.55z"/></svg>
           Mac (Intel)
         </a>
-        <a href="#" class="btn btn-outline">
+        <a href="#price" class="btn btn-outline">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.15-1.02.05-2.26.68-3 1.54-.63.74-1.17 1.92-1.02 3.16 1.13.09 2.26-.64 3.01-1.55z"/></svg>
           Mac (M芯片)
         </a>
-        <a href="#" class="btn btn-outline">
+        <a href="#price" class="btn btn-outline">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.44v17.12l9.63-1.31V4.78L0 3.44zm11.06 1.51v14.1L24 20.93V3.07l-12.94 1.88z"/></svg>
           Windows
         </a>
@@ -443,24 +444,51 @@ var _hmt = _hmt || [];
   <section class="section" id="features">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">不仅仅是编辑器</h2>
-        <p class="section-subtitle">精心打磨的每一个细节，只为提供最流畅的写作体验</p>
+        <h2 class="section-title">不仅是编辑器，更是本地优先的知识中枢</h2>
+        <p class="section-subtitle">从灵感记录到长期沉淀，知夏笔记帮你把分散的信息收拢到同一个安全空间里。</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">📝</div>
-          <h3>全能 Markdown</h3>
-          <p>支持 GFM 标准、代码高亮、Mermaid 图表、数学公式。所见即所得的样式导出。</p>
+          <h3>写作体验顺手</h3>
+          <p>支持 GFM、代码高亮、Mermaid、任务列表等完整 Markdown 能力，适合写周报、技术笔记和长文档。</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔒</div>
-          <h3>安全隐私</h3>
-          <p>数据完全本地化，支持 AES 加密密码箱。我们不收集任何用户数据。</p>
+          <h3>真正掌控数据</h3>
+          <p>所有内容都在本地目录和你的私有 Git 仓库中；密码箱与敏感笔记支持本地 AES 加密，主密码保护，官方无法解密。</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔄</div>
-          <h3>Git 同步</h3>
-          <p>免费同步到 GitHub/GitLab 私有仓库，多端数据实时保持一致。</p>
+          <h3>Git 驱动的多端同步</h3>
+          <p>以 Git 为基础的同步策略，自由选择 GitHub / GitLab / 自建仓库，多台设备保持一致。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenes -->
+  <section class="section section-bg" id="scenes">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">谁最适合使用知夏笔记？</h2>
+        <p class="section-subtitle">如果你符合下面其中一条，很可能就是为你准备的。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">👨‍💻</div>
+          <h3>程序员 / 开发者</h3>
+          <p>用 Markdown 记录需求、架构设计、踩坑记录；通过 Git 分支管理不同项目文档，让知识天然跟代码一起版本化。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✍️</div>
+          <h3>独立创作者 / 博主</h3>
+          <p>先在本地整理文章草稿、选题库和灵感卡片，再同步到远程仓库做备份，保证写作资产长期可控。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>重视隐私的知识工作者</h3>
+          <p>不愿把日记、工作日志和账号密码托管给云端服务，用主密码和本地加密守住真正敏感的信息。</p>
         </div>
       </div>
     </div>
@@ -469,54 +497,53 @@ var _hmt = _hmt || [];
   <!-- Detailed Highlights -->
   <section class="section section-bg" id="diary">
     <div class="container highlight-wrap">
-      
       <!-- Highlight 1: Diary -->
       <div class="highlight-item">
         <div class="highlight-text">
-          <h2>📅 专属日记模式</h2>
-          <p>用文字定格时间。独特的日历视图，让回忆触手可及。</p>
+          <h2>📅 用日记和时间线记录生活</h2>
+          <p>不只是「今天做了什么」，而是帮你形成一条可以回顾的个人时间线。</p>
           <ul class="highlight-list">
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>日历概览视图，心情天气自动记录</span>
+              <span>日历视图总览整个月的心情与事件</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>独立加密存储，保护私密日记</span>
+              <span>每一天都是一篇 Markdown 日记，易写、易导出</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>支持图文混排，记录生活点滴</span>
+              <span>支持图文混排，随手贴截图与片段</span>
             </li>
           </ul>
         </div>
         <div class="highlight-visual">
-          [日记模式界面预览]
+          [日记与日历视图界面预览]
         </div>
       </div>
 
       <!-- Highlight 2: AI -->
       <div class="highlight-item reverse">
         <div class="highlight-text">
-          <h2>🤖 AI 智能助手</h2>
-          <p>接入 DeepSeek 等强大模型，辅助你的创作与思考。</p>
+          <h2>🤖 AI 辅助写作与思考</h2>
+          <p>当你卡住、懒得润色或需要总结时，让 AI 帮你迈出那一步。</p>
           <ul class="highlight-list">
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>智能摘要与润色，提升写作质量</span>
+              <span>对选中文本一键润色、扩写或生成摘要</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>侧边栏对话，随时获取灵感</span>
+              <span>侧边栏对话，围绕当前笔记持续讨论</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>支持自定义 API Key，按需使用</span>
+              <span>支持自定义 API Key，自主选择模型和费用</span>
             </li>
           </ul>
         </div>
         <div class="highlight-visual">
-          [AI 助手界面预览]
+          [AI 助手与编辑器联动界面预览]
         </div>
       </div>
 
@@ -527,25 +554,113 @@ var _hmt = _hmt || [];
   <section class="section" id="toolbox">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">功能百宝箱</h2>
-        <p class="section-subtitle">更多实用工具，提升效率</p>
+        <h2 class="section-title">功能百宝箱：围绕你的一天设计</h2>
+        <p class="section-subtitle">不仅写笔记，而是帮你把「要做的事」和「想到的事」串在一起。</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">🔑</div>
           <h3>密码管理</h3>
-          <p>本地加密存储账号密码，安全无忧。</p>
+          <p>用主密码加密存储常用账号和密钥，随时查阅，彻底告别记忆和找回密码的痛苦。</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">✅</div>
           <h3>待办清单</h3>
-          <p>极简任务管理，保持专注。</p>
+          <p>把任务拆到可执行的待办清单中，支持完成勾选与历史回顾，让事情一个个推进。</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎨</div>
           <h3>多主题</h3>
-          <p>深色/浅色模式，舒适护眼。</p>
+          <p>内置多套主题，深浅色一键切换，长时间写作也能保持舒适。</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
+  <section class="section" id="security">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">数据存储与安全：你的信息只属于你</h2>
+        <p class="section-subtitle">按照「本地优先」原则设计，让你不用再纠结数据放在哪里、安全不安全。</p>
+      </div>
+      <div class="highlight-wrap">
+        <div class="highlight-item">
+          <div class="highlight-text">
+            <h2>本地目录 + 私有 Git 仓库</h2>
+            <p>第一次使用时，选择一个本地目录作为「笔记仓库」。所有 Markdown、日记、附件都在这个目录下，由你完全掌控。</p>
+            <ul class="highlight-list">
+              <li>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>不依赖任何官方服务器，离线也能完整使用</span>
+              </li>
+              <li>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>你可以自由选择 GitHub / GitLab / 自建 Git 作为远程备份</span>
+              </li>
+              <li>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>授权码验证与数据读写都在本地完成</span>
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-visual">
+            [数据与目录结构示意截图]
+          </div>
+        </div>
+        <div class="highlight-item reverse">
+          <div class="highlight-text">
+            <h2>主密码 + 本地 AES 加密</h2>
+            <p>对于真正敏感的内容，知夏笔记提供主密码和本地加密能力，确保即使别人拿到你的电脑，也难以直接读取内容。</p>
+            <ul class="highlight-list">
+              <li>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>密码箱与单篇笔记内容使用 AES-256-GCM 加密</span>
+              </li>
+              <li>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>加解密操作都需要主密码，主密码不会明文存储</span>
+              </li>
+              <li>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>官方无法帮你找回主密码或解密内容，真正只有你自己掌控</span>
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-visual">
+            [加密与主密码设置界面截图]
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide -->
+  <section class="section section-bg" id="guide">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">3 分钟上手知夏笔记</h2>
+        <p class="section-subtitle">按照下面的步骤，你可以很快把它融入自己的工作与生活。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">①</div>
+          <h3>选择你的笔记仓库</h3>
+          <p>下载安装后，首次启动会让你选择一个本地目录。建议单独创建一个文件夹，例如「ZhixiaNotes」，后续所有笔记和日记都会放在这里。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">②</div>
+          <h3>创建第一篇笔记 / 日记</h3>
+          <p>在左侧文件树中新建一篇笔记，或者打开日记视图写下今天的想法。此时你就已经在本地完成了第一份「知识资产」的归档。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">③</div>
+          <h3>按需开启 Git 与主密码</h3>
+          <p>如果你有多设备需求，可以在设置中配置远程 Git 仓库；同时为密码箱设置主密码，并对真正敏感的笔记开启加密保护。</p>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 40px;">
+        <p class="section-subtitle">从这一刻开始，知夏笔记会像一个安静可靠的「本地知识管家」，陪你慢慢积累。</p>
       </div>
     </div>
   </section>
@@ -554,12 +669,12 @@ var _hmt = _hmt || [];
   <section class="section section-bg" id="price">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">简单透明的定价</h2>
-        <p class="section-subtitle">支持独立开发，享受终身服务</p>
+        <h2 class="section-title">简单透明的定价与授权</h2>
+        <p class="section-subtitle">一次买断，长期使用，不绑订阅，不锁数据。</p>
       </div>
       
       <div class="price-card">
-        <span class="price-tag">限时特惠</span>
+        <span class="price-tag">限时特惠 · 早鸟价</span>
         <div class="price-amount">
           <span style="font-size: 32px; vertical-align: top;">¥</span>9.9
         </div>
