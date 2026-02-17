@@ -290,10 +290,92 @@ header {
   box-shadow: var(--shadow-lg);
 }
 
+.theme-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.theme-carousel-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.theme-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.theme-slide.active {
+  opacity: 1;
+}
+
+.theme-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-carousel-controls {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background-color: #cbd5e1;
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-dot.active {
+  width: 18px;
+  background-color: var(--primary);
+  opacity: 1;
+}
+
 /* Price Section */
 .price-card {
-  max-width: 440px;
-  margin: 0 auto;
+  max-width: 380px;
+  margin: 0;
   background: white;
   border-radius: 24px;
   padding: 48px;
@@ -339,6 +421,9 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+#price .feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 /* Footer */
@@ -408,7 +493,7 @@ var _hmt = _hmt || [];
       <a href="#guide">上手教程</a>
       <a href="#price">定价与授权</a>
     </nav>
-    <a href="https://pay.ldxp.cn/shop/JP29WP9S" target="_blank" class="btn-nav">立即购买</a>
+    <a href="#price" class="btn-nav">查看授权</a>
   </div>
 </header>
 
@@ -416,16 +501,12 @@ var _hmt = _hmt || [];
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-content">
-      <span class="badge">🚀 新版发布 · 本地优先 · 永久买断</span>
+      <span class="badge">🚀 核心功能永久免费 · 本地优先 · 可选授权</span>
       <h1>你的第二大脑<br>本地优先，掌控全部数据</h1>
-      <p>专为程序员、独立创作者和重视隐私的知识工作者设计。<br>在一处同时管理笔记、日记、待办、日程和密码，全部保存在你的设备和私有仓库中。</p>
+      <p>专为程序员、独立创作者和重视隐私的知识工作者设计。<br>在一处同时管理笔记、日记、待办、日程和密码，大部分能力免费使用，高级功能通过授权码解锁，数据始终保存在你的设备和私有仓库中。</p>
       <div class="hero-btns">
-        <a href="#guide" class="btn btn-primary">
-          3 分钟快速上手
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
         <a href="#price" class="btn btn-outline">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.15-1.02.05-2.26.68-3 1.54-.63.74-1.17 1.92-1.02 3.16 1.13.09 2.26-.64 3.01-1.55z"/></svg>
+          <svg width="20" height="20" viewBox="0 #0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.68-.83 1.14-1.99 1.01-3.15-1.02.05-2.26.68-3 1.54-.63.74-1.17 1.92-1.02 3.16 1.13.09 2.26-.64 3.01-1.55z"/></svg>
           Mac (Intel)
         </a>
         <a href="#price" class="btn btn-outline">
@@ -463,6 +544,12 @@ var _hmt = _hmt || [];
           <h3>Git 驱动的多端同步</h3>
           <p>以 Git 为基础的同步策略，自由选择 GitHub / GitLab / 自建仓库，多台设备保持一致。</p>
         </div>
+      </div>
+      <div class="text-center" style="margin-top: 32px;">
+        <!-- 功能区支持按钮：默认指向永久授权码 -->
+        <a href="https://pay.ldxp.cn/item/hzkkwr" target="_blank" class="btn btn-outline">
+          想支持我，购买授权
+        </a>
       </div>
     </div>
   </section>
@@ -518,32 +605,110 @@ var _hmt = _hmt || [];
           </ul>
         </div>
         <div class="highlight-visual">
-          [日记与日历视图界面预览]
+          <img src="assets/capture/日记本.png" alt="日记与日历视图界面预览" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
         </div>
       </div>
 
-      <!-- Highlight 2: AI -->
+      <!-- Highlight 2: 多主体管理优势 -->
       <div class="highlight-item reverse">
         <div class="highlight-text">
-          <h2>🤖 AI 辅助写作与思考</h2>
-          <p>当你卡住、懒得润色或需要总结时，让 AI 帮你迈出那一步。</p>
+          <h2>多主体管理优势</h2>
+          <p>支持同时管理多个笔记主体，满足个人、工作、学习等不同场景的内容分类需求。</p>
           <ul class="highlight-list">
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>对选中文本一键润色、扩写或生成摘要</span>
+              <span>独立主体空间，内容互不干扰</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>侧边栏对话，围绕当前笔记持续讨论</span>
+              <span>主体间快速切换，提高内容管理效率</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>支持自定义 API Key，自主选择模型和费用</span>
+              <span>自定义主体属性，满足个性化需求</span>
             </li>
           </ul>
         </div>
         <div class="highlight-visual">
-          [AI 助手与编辑器联动界面预览]
+          <img src="assets/capture/日程清单.png" alt="多主体与日程清单界面预览" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
+        </div>
+      </div>
+
+      <!-- Highlight 3: 多主题编辑器 -->
+      <div class="highlight-item">
+        <div class="highlight-text">
+          <h2>多样化编辑器主题</h2>
+          <p>同一份内容，可以在不同主题下呈现。根据你的喜好，在写作时切换出最舒服的视觉风格。</p>
+          <ul class="highlight-list">
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>多套内置主题覆盖深色、浅色与多种配色风格</span>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>Markdown 编辑器与预览区统一风格，所见即所得</span>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>长时间写作也能保持舒适、不刺眼</span>
+            </li>
+          </ul>
+        </div>
+        <div class="highlight-visual">
+          <div class="theme-carousel">
+            <div class="theme-carousel-window">
+              <div class="theme-slide active">
+                <img src="assets/theme/主题-云朵.png" alt="云朵主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-全栈蓝.png" alt="全栈蓝主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-凝夜紫.png" alt="凝夜紫主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-布丁.png" alt="布丁主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-极客黑.png" alt="极客黑主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-极简黑.png" alt="极简黑主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-科技蓝.png" alt="科技蓝主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-简约绿.png" alt="简约绿主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-糖果.png" alt="糖果主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-红宝石.png" alt="红宝石主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-草原绿.png" alt="草原绿主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-萌绿.png" alt="萌绿主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-蔷薇紫.png" alt="蔷薇紫主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-锤子标签.png" alt="锤子标签主题">
+              </div>
+              <div class="theme-slide">
+                <img src="assets/theme/主题-马卡龙.png" alt="马卡龙主题">
+              </div>
+            </div>
+            <div class="theme-carousel-controls">
+              <button class="theme-arrow theme-arrow-left" type="button">&#8249;</button>
+              <div class="theme-carousel-dots"></div>
+              <button class="theme-arrow theme-arrow-right" type="button">&#8250;</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -605,7 +770,7 @@ var _hmt = _hmt || [];
             </ul>
           </div>
           <div class="highlight-visual">
-            [数据与目录结构示意截图]
+            <img src="assets/capture/日程清单.png" alt="日程清单与数据结构截图" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
           </div>
         </div>
         <div class="highlight-item reverse">
@@ -628,7 +793,7 @@ var _hmt = _hmt || [];
             </ul>
           </div>
           <div class="highlight-visual">
-            [加密与主密码设置界面截图]
+            <img src="assets/capture/密码管理器.png" alt="加密与主密码设置界面截图" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
           </div>
         </div>
       </div>
@@ -670,43 +835,93 @@ var _hmt = _hmt || [];
     <div class="container">
       <div class="text-center">
         <h2 class="section-title">简单透明的定价与授权</h2>
-        <p class="section-subtitle">一次买断，长期使用，不绑订阅，不锁数据。</p>
+        <p class="section-subtitle">核心功能永久免费，授权主要用于解锁高级功能和支持作者，不绑订阅，不锁数据。</p>
       </div>
-      
-      <div class="price-card">
-        <span class="price-tag">限时特惠 · 早鸟价</span>
-        <div class="price-amount">
-          <span style="font-size: 32px; vertical-align: top;">¥</span>9.9
-        </div>
-        <div class="price-desc">原价 ¥99 · 终身买断制</div>
-        
-        <ul class="price-list">
-          <li>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
-            解锁所有高级功能
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
-            无限数量笔记与日记
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
-            Git 多端同步支持
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
-            AI 助手 (需自备 Key)
-          </li>
-          <li>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#2563eb"><path d="M20 6L9 17l-5-5"/></svg>
-            永久免费更新支持
-          </li>
-        </ul>
 
-        <a href="https://pay.ldxp.cn/shop/JP29WP9S" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
-          立即购买
-        </a>
-        <p style="margin-top: 16px; font-size: 13px; color: #94a3b8;">支持 支付宝 支付</p>
+      <div class="feature-grid">
+        <!-- 免费使用 -->
+        <div class="price-card">
+          <span class="price-tag">免费使用</span>
+          <div class="price-amount">
+            <span style="font-size: 24px; vertical-align: top;">¥</span>0
+          </div>
+          <div class="price-desc">开箱即用 · 不输入授权码也能正常使用</div>
+          <ul class="price-list">
+            <li>本地笔记、日记、待办、日程等核心功能可直接使用</li>
+            <li>数据全部保存在你的本地目录和私有 Git 仓库</li>
+            <li>随时可以继续免费用，也可以按需购买授权</li>
+          </ul>
+          <div class="section-subtitle" style="margin: 0; font-size: 14px; text-align: left; padding-left: 20px; color: var(--text-muted);">
+            想支持我，再考虑购买下面的授权码就好。
+          </div>
+        </div>
+
+        <!-- 7 天体验卡 -->
+        <div class="price-card">
+          <span class="price-tag">7 天体验卡</span>
+          <div class="price-amount">
+            <span style="font-size: 24px; vertical-align: top;">¥</span>1
+          </div>
+          <div class="price-desc">短期体验 · 适合先试一试</div>
+          <ul class="price-list">
+            <li>短时间内解锁全部高级功能</li>
+            <li>不限制笔记与日记数量</li>
+          </ul>
+          <a href="https://pay.ldxp.cn/item/v26chi" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            购买 7 天体验卡
+          </a>
+        </div>
+
+        <!-- 30 天（月卡） -->
+        <div class="price-card">
+          <span class="price-tag">30 天（月卡）</span>
+          <div class="price-amount">
+            <span style="font-size: 24px; vertical-align: top;">¥</span>3
+          </div>
+          <div class="price-desc">原价 ¥10 · 一个月稳定试用</div>
+          <ul class="price-list">
+            <li>完整功能一个月畅用</li>
+            <li>适合作为长期使用前的体验</li>
+            <li>期间可随时升级为年卡 / 永久</li>
+          </ul>
+          <a href="https://pay.ldxp.cn/item/v26chi" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            购买 30 天月卡
+          </a>
+        </div>
+
+        <!-- 365 天（年卡） -->
+        <div class="price-card">
+          <span class="price-tag">365 天（年卡）</span>
+          <div class="price-amount">
+            <span style="font-size: 24px; vertical-align: top;">¥</span>9.9
+          </div>
+          <div class="price-desc">原价 ¥30 · 一年安心使用</div>
+          <ul class="price-list">
+            <li>适合已经决定长期使用的用户</li>
+            <li>一年内享受所有功能与更新</li>
+            <li>到期后可续费或升级为永久</li>
+          </ul>
+          <a href="https://pay.ldxp.cn/item/6ebo7e" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            购买 365 天年卡
+          </a>
+        </div>
+
+        <!-- 永久授权码 -->
+        <div class="price-card">
+          <span class="price-tag">永久授权码</span>
+          <div class="price-amount">
+            <span style="font-size: 24px; vertical-align: top;">¥</span>99
+          </div>
+          <div class="price-desc">原价 ¥268 · 终身买断制</div>
+          <ul class="price-list">
+            <li>一次购买，所有后续版本永久免费更新</li>
+            <li>解锁全部高级功能和无限笔记 / 日记</li>
+            <li>最省心的长期选择</li>
+          </ul>
+          <a href="https://pay.ldxp.cn/item/hzkkwr" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            购买永久授权
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -718,6 +933,7 @@ var _hmt = _hmt || [];
     <div class="logo">知夏笔记</div>
     <nav class="footer-nav">
       <a href="#">使用文档</a>
+      <a href="#price">购买授权</a>
       <a href="#">更新日志</a>
       <a href="#">隐私协议</a>
       <a href="#">联系作者</a>
@@ -727,6 +943,88 @@ var _hmt = _hmt || [];
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var carousels = document.querySelectorAll('.theme-carousel');
+
+    carousels.forEach(function (carousel) {
+      var slides = carousel.querySelectorAll('.theme-slide');
+      if (!slides.length) return;
+
+      var dotsContainer = carousel.querySelector('.theme-carousel-dots');
+      var prevBtn = carousel.querySelector('.theme-arrow-left');
+      var nextBtn = carousel.querySelector('.theme-arrow-right');
+      var dots = [];
+      var current = 0;
+      var timer = null;
+
+      function setActive(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function goNext() {
+        var nextIndex = (current + 1) % slides.length;
+        setActive(nextIndex);
+      }
+
+      function goPrev() {
+        var prevIndex = (current - 1 + slides.length) % slides.length;
+        setActive(prevIndex);
+      }
+
+      function start() {
+        if (timer !== null) return;
+        timer = window.setInterval(goNext, 4000);
+      }
+
+      function stop() {
+        if (timer === null) return;
+        window.clearInterval(timer);
+        timer = null;
+      }
+
+      slides.forEach(function (_slide, index) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'theme-dot' + (index === 0 ? ' active' : '');
+        dot.addEventListener('click', function () {
+          setActive(index);
+          stop();
+          start();
+        });
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          goPrev();
+          stop();
+          start();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          goNext();
+          stop();
+          start();
+        });
+      }
+
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+
+      slides[0].classList.add('active');
+      start();
+    });
+  });
+</script>
 
 </body>
 </html>
