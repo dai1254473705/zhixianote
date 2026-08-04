@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>知夏笔记 - 本地优先的全能 Markdown 笔记工具</title>
-<meta name="description" content="知夏笔记是一款集 Markdown 笔记、密码箱、待办、日程于一体的本地优先客户端工具，支持 Git 私有仓库同步与本地加密，数据完全属于你。" />
+<title>知夏笔记 - 本地优先的办公资料笔记本</title>
+<meta name="description" content="知夏笔记是一款本地优先的办公资料笔记本。整理笔记、PDF、图片、待办、日程、密码，一个地方归纳、搜索、总结和备份。数据完全属于你自己。" />
 <meta name="baidu-site-verification" content="codeva-1VRmALTGRR" />
 <link rel="icon" type="image/png" href="assets/favicon-64x64.png" />
 <style>
@@ -507,21 +507,21 @@ var _hmt = _hmt || [];
       <a href="#security">数据与安全</a>
       <a href="#guide">上手教程</a>
       <a href="#price">定价与授权</a>
+      <a href="#faq">常见问题</a>
     </nav>
-    <a href="#price" class="btn-nav">查看授权</a>
+    <a href="#download" class="btn-nav">立即下载</a>
   </div>
 </header>
 
 <main>
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="download">
     <div class="container hero-content">
-      <span class="badge">🚀 核心功能永久免费 · 本地优先 · 可选授权</span>
-      <h1>你的第二大脑<br>本地优先，掌控全部数据</h1>
+      <span class="badge">本地优先 · 办公好帮手 · 免注册即用</span>
+      <h1>把笔记、PDF、待办<br>留在本地，随时整理与备份</h1>
       <p class="hero-subtitle">
-        纯本地文件夹笔记本。不上传、不加密、不锁死。<br>
-        Mac 用 iCloud，Windows 用 OneDrive，跨设备用 Git。<br>
-        你的笔记，永远在你手里。
+        适合普通办公人员的本地资料笔记本。<br>
+        看 PDF、压图片、写笔记、管密码、导出备份，数据始终在你手里。
       </p>
       <div class="hero-btns">
         <a href="https://github.com/dai1254473705/zhixianote/releases/download/2.3.2/zhixianote-2.3.2-arm64.dmg" class="btn btn-outline">
@@ -544,39 +544,39 @@ var _hmt = _hmt || [];
   <section class="section" id="features">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">不仅是编辑器，更是本地优先的知识中枢</h2>
-        <p class="section-subtitle">从灵感记录到长期沉淀，知夏笔记帮你把分散的信息收拢到同一个安全空间里。</p>
+        <h2 class="section-title">办公场景全覆盖</h2>
+        <p class="section-subtitle">从写笔记到管资料，普通办公人员一天到晚都能用上</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">📝</div>
-          <h3>写作体验顺手</h3>
-          <p>支持 GFM、代码高亮、Mermaid 图表；支持一键复制到微信公众号（带样式），适合写技术博客与周报。编辑器已升级为 Monaco Editor（VS Code 同款）。</p>
+          <h3>Markdown 笔记</h3>
+          <p>支持实时预览、Mermaid 图表、标签管理和 Wikilinks，写周报、记会议、整理资料都很顺手。Monaco 编辑器，写久了也不累。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>真正掌控数据</h3>
-          <p>所有内容都在本地目录和你的私有 Git 仓库中；密码箱与敏感笔记支持本地 AES 加密，主密码保护，官方无法解密。</p>
+          <div class="feature-icon">📄</div>
+          <h3>PDF 预览与文字提取</h3>
+          <p>在编辑区直接打开 PDF，一键提取文字内容。会议资料、合同文本轻松查阅和拷贝，无需额外软件。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔄</div>
-          <h3>Git 驱动的多端同步</h3>
-          <p>以 Git 为基础的同步策略，自由选择 GitHub / GitLab / 自建仓库，多台设备保持一致。</p>
+          <div class="feature-icon">🖼️</div>
+          <h3>图片预览与压缩</h3>
+          <p>支持常见图片格式预览，一键压缩到适合大小。截图、照片随时处理，节省空间和分享流量。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🧠</div>
-          <h3>智能文件记录同步</h3>
-          <p>最近打开的文件和外部文件记录会随文件重命名、移动自动更新；文件删除时智能提示清理，让快捷记录始终准确可靠。</p>
+          <div class="feature-icon">💾</div>
+          <h3>备份与恢复</h3>
+          <p>导出 .zxnbackup 备份包，换电脑后导入即可恢复所有数据。待办、日程、密码、书签、备忘录，搬家不愁。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>空间分析与清理</h3>
-          <p>可视化展示项目文件占用，矩形树图一眼识别空间杀手；智能扫描未引用的僵尸资源（图片/附件），支持一键批量清理。</p>
+          <div class="feature-icon">✅</div>
+          <h3>待办与日程</h3>
+          <p>内置待办清单和日程管理。今天的任务、下周的会议，不用再打开第二个 App。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📅</div>
-          <h3>智能日程提醒</h3>
-          <p>支持日程预设提醒、过期任务提醒；点击通知可直接打开并定位到具体日程；只有设置了提醒的日程才会通知，避免干扰。</p>
+          <div class="feature-icon">🔐</div>
+          <h3>密码管理</h3>
+          <p>AES 加密存储账号密码，主密码保护。不上传、不联网，只有你能打开。换电脑可用备份恢复。</p>
         </div>
       </div>
       <div class="text-center" style="margin-top: 32px;">
@@ -592,55 +592,109 @@ var _hmt = _hmt || [];
   <section class="section section-bg" id="scenes">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">谁最适合使用知夏笔记？</h2>
-        <p class="section-subtitle">如果你符合下面其中一条，很可能就是为你准备的。</p>
+        <h2 class="section-title">适合谁用？</h2>
+        <p class="section-subtitle">如果你符合下面其中一条，知夏笔记就是为你准备的。</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="feature-icon">👨‍💻</div>
-          <h3>程序员 / 开发者</h3>
-          <p>用 Markdown 记录需求、架构设计、踩坑记录；通过 Git 分支管理不同项目文档，让知识天然跟代码一起版本化。</p>
+          <div class="feature-icon">💼</div>
+          <h3>普通办公人员</h3>
+          <p>每天处理会议纪要、项目资料、PDF 和图片。一个地方统一放资料、记笔记、查内容，不用在多个软件之间切来切去。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">✍️</div>
-          <h3>独立创作者 / 博主</h3>
-          <p>先在本地整理文章草稿、选题库和灵感卡片，再同步到远程仓库做备份，保证写作资产长期可控。</p>
+          <div class="feature-icon">📚</div>
+          <h3>需要整理资料的人</h3>
+          <p>PDF、截图、书签、待办、日程散落在不同地方？用知夏笔记统一存放，搜索、导出、备份一步完成。</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔐</div>
-          <h3>重视隐私的知识工作者</h3>
-          <p>不愿把工作日志和账号密码托管给云端服务，用主密码和本地加密守住真正敏感的信息。</p>
+          <h3>重视隐私的用户</h3>
+          <p>不想把工作资料和账号密码交给云端？所有数据存本地，加密由主密码保护，官方无法解密。换电脑可用备份恢复。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Use Cases -->
+  <section class="section" id="use-cases">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">三个真实办公场景</h2>
+        <p class="section-subtitle">不是为了炫技，而是解决每天都会遇到的小麻烦。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>会议资料整理</h3>
+          <p>会前把 PDF、图片和参考链接放进笔记本；会中记录纪要和待办；会后导出整理好的资料，直接发给同事。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📁</div>
+          <h3>项目资料归档</h3>
+          <p>一个项目一个本地目录，需求、截图、合同、密码、日程都放在一起。空间分析帮你发现无用附件，避免资料越堆越乱。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💾</div>
+          <h3>换电脑备份恢复</h3>
+          <p>导出 .zxnbackup，换电脑后导入即可恢复功能百宝箱数据。待办、日程、密码、书签和备忘录都能跟着走。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotion Cases -->
+  <section class="section section-bg" id="promotion-cases">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">也适合这样介绍给同事和朋友</h2>
+        <p class="section-subtitle">如果你在小红书、B站或社群里分享，可以直接从这些真实问题讲起。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📌</div>
+          <h3>小红书：办公资料太分散</h3>
+          <p>从「PDF、截图、会议纪要到处都是」切入，展示如何把资料放进本地笔记本，统一搜索、整理和备份。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎬</div>
+          <h3>B站：3 分钟整理一天工作</h3>
+          <p>用录屏演示：打开 PDF、提取文字、写会议纪要、提取待办、导出备份，让观众看到完整办公流程。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>社群：换电脑不丢资料</h3>
+          <p>强调本地优先和 .zxnbackup 备份恢复，适合发给担心资料丢失、隐私上传和多软件切换的用户。</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Detailed Highlights -->
-  <section class="section section-bg" id="highlights">
+  <section class="section" id="highlights">
     <div class="container highlight-wrap">
 
       <!-- Highlight 2: 多主体管理优势 -->
       <div class="highlight-item reverse">
         <div class="highlight-text">
-          <h2>多主体管理优势</h2>
-          <p>支持同时管理多个笔记主体，满足个人、工作、学习等不同场景的内容分类需求。</p>
+          <h2>换电脑也不怕，数据一键搬家</h2>
+          <p>导出 .zxnbackup 备份包，导入新电脑即可恢复全部功能百宝箱数据。</p>
           <ul class="highlight-list">
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>独立主体空间，内容互不干扰</span>
+              <span>一键导出，待办、日程、密码、书签、备忘录全部打包</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>主体间快速切换，提高内容管理效率</span>
+              <span>导入前自动备份当前数据，失败可回滚</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>自定义主体属性，满足个性化需求</span>
+              <span>备份包包含 manifest，支持校验和版本识别</span>
             </li>
           </ul>
         </div>
         <div class="highlight-visual">
-          <img src="assets/capture/日程清单.png" alt="多主体与日程清单界面预览" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
+          <img src="assets/capture/日程清单.png" alt="数据备份与日程界面预览" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
         </div>
       </div>
 
@@ -725,24 +779,24 @@ var _hmt = _hmt || [];
       <!-- Highlight 4: AI 助手 -->
       <div class="highlight-item reverse">
         <div class="highlight-text">
-          <h2>AI 助手与本地知识库</h2>
-          <p>内置强大的 AI 对话能力与 RAG（检索增强生成）技术，让笔记变成你的私人知识库。</p>
+          <h2>AI 助手（可选配置）</h2>
+          <p>按需配置 OpenAI 兼容接口，AI 可帮你总结笔记、提取待办、润色内容。不配 AI 也能正常使用全部功能。</p>
           <ul class="highlight-list">
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>支持对接 DeepSeek、GPT-4 等任意兼容 OpenAI 接口的模型</span>
+              <span>支持对接 DeepSeek、GLM、GPT 等 OpenAI 兼容模型</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>本地全文搜索，根据你的笔记内容回答问题，数据不出本地</span>
+              <span>本地全文搜索让 AI 基于你的资料回答，不编造</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>AI 工具调用：可直接创建、编辑、搜索笔记文件</span>
+              <span>一键总结当前笔记、提取待办、润色通知和邮件</span>
             </li>
             <li>
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span>自定义提示词、快捷提问、拖拽文件引用</span>
+              <span>不配 AI 也能正常使用所有功能，不强制依赖</span>
             </li>
           </ul>
         </div>
@@ -758,8 +812,8 @@ var _hmt = _hmt || [];
   <section class="section" id="toolbox">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">功能百宝箱：围绕你的一天设计</h2>
-        <p class="section-subtitle">不仅写笔记，而是帮你把「要做的事」和「想到的事」串在一起。</p>
+        <h2 class="section-title">功能百宝箱：日常办公够用就好</h2>
+        <p class="section-subtitle">按「日常办公 / 资料整理 / 安全与备份」分组，不堆功能，够用就好。</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
@@ -790,8 +844,8 @@ var _hmt = _hmt || [];
   <section class="section" id="security">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title">数据存储与安全：你的信息只属于你</h2>
-        <p class="section-subtitle">按照「本地优先」原则设计，让你不用再纠结数据放在哪里、安全不安全。</p>
+        <h2 class="section-title">数据与隐私：你的信息只属于你</h2>
+        <p class="section-subtitle">所有数据存本地，不上传不注册；换电脑可用备份恢复。</p>
       </div>
       <div class="highlight-wrap">
         <div class="highlight-item">
@@ -957,8 +1011,50 @@ var _hmt = _hmt || [];
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">常见问题</h2>
+        <p class="section-subtitle">下载、授权、备份和隐私问题，先看这里。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⬇️</div>
+          <h3>应该下载哪个版本？</h3>
+          <p>Mac 用户按芯片选择 Apple Silicon 或 Intel 版本；Windows 用户下载安装包即可。安装后首次启动会让你选择本地笔记仓库。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎁</div>
+          <h3>不买授权能用吗？</h3>
+          <p>可以。基础笔记、文件管理、待办和日程等核心功能可直接使用。新设备还可以在应用内开启 15 天全功能试用。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3>授权码有什么区别？</h3>
+          <p>30 天和 365 天授权适合短期或年度使用；永久授权一次购买长期有效。时长授权首次激活需要联网验证设备绑定。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>换电脑怎么办？</h3>
+          <p>资料可以通过 .zxnbackup 备份包恢复。永久授权不绑定设备；时长授权绑定首次激活设备，换设备前请先联系处理。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>数据会上传到服务器吗？</h3>
+          <p>不会。笔记、附件和功能百宝箱数据默认保存在你的电脑本地。只有你主动配置 Git 同步时，才会同步到你自己的远程仓库。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧳</div>
+          <h3>卸载前要注意什么？</h3>
+          <p>卸载前建议先导出 .zxnbackup，并确认本地笔记仓库已备份。这样以后重装或换电脑时可以继续恢复使用。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Changelog Link -->
-  <section class="section" id="changelog">
+  <section class="section section-bg" id="changelog">
     <div class="container">
       <div class="text-center">
         <h2 class="section-title">更新日志</h2>
@@ -978,11 +1074,11 @@ var _hmt = _hmt || [];
   <div class="container footer-content">
     <div class="logo">知夏笔记</div>
     <nav class="footer-nav">
-      <a href="#">使用文档</a>
+      <a href="#guide">使用文档</a>
       <a href="#price">购买授权</a>
       <a href="changelog.html">更新日志</a>
-      <a href="#">隐私协议</a>
-      <a href="#">联系作者</a>
+      <a href="#security">隐私说明</a>
+      <a href="#faq">常见问题</a>
     </nav>
     <div class="copyright">
       &copy; 2026 知夏笔记. All rights reserved. Designed for simplicity.
